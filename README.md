@@ -21,11 +21,11 @@ This computes pairwise Jaccard overlap of k-token phrases between `a.py`, `b.py`
 ```bash
 uvx --from "git+https://github.com/sanand0/codesimilarity.git" \
   codesimilarity PATH [PATH ...] \
-  --csv out.csv \
-  --threshold 0.0 \
   --k 5 \
+  --lexical \
   --nearest 0 \
-  --lexical
+  --threshold 0.0 \
+  --csv out.csv
 ```
 
 PATH handling:
