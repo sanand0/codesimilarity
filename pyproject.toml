@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "codesimilarity"
+version = "0.1.0"
+description = "Compare similarity of Python files/directories"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "typer>=0.12",
+  "pandas>=2.0",
+]
+authors = [{ name = "Anand S <root.node@gmail.com>" }]
+license = { text = "MIT" }
+
+[project.scripts]
+codesimilarity = "codesimilarity:app"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
