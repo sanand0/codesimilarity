@@ -118,6 +118,12 @@ uvx --from "git+https://github.com/sanand0/codesimilarity.git" codesimilarity *.
 | mul.py  | add2.py |   0.053 |
 | mul.py  | add1.py |   0.000 |
 
+## Improvements
+
+- Normalize f-strings to `"FSTRING"`. Treat their `{expr}` parts as `"ID"`.
+- Drop module/class/function docstrings via an AST pass.
+- For large cohorts, replace full shingle sets with a [winnowed fingerprint](https://theory.stanford.edu/~aiken/publications/papers/sigmod03.pdf) (hash k-grams, slide a window, keep minima). This keeps recall for longer matches while drastically shrinking memory/time. Then compare fingerprints. For simplicity, hash each k-gram with `blake2b(digest_size=8)` and winniw with window size w ~ k.
+
 ## Development
 
 This repository is not published on PyPI. Develop and test locally:
@@ -130,3 +136,7 @@ This repository is not published on PyPI. Develop and test locally:
 Notes:
 
 - The CLI is exposed via the `codesimilarity` entry point (Typer). Use `uvx codesimilarity ...` as shown above.
+
+## License
+
+[MIT](LICENSE)
